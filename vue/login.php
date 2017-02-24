@@ -1,7 +1,7 @@
 <section>
 	<article>
 		<form action="../control/login_control.php" method="post" accept-charset="utf-8">
-			<input type="text" name="UTILISATEUR" value="" placeholder="nom.prénom@fournisseur.com" required>
+			<input type="text" name="UTILISATEUR" value="" placeholder="Nom d'utilisateur" required>
 			<input type="password" name="CODE" value="" placeholder="Mot de passe" required>
 			<input type="submit" name="" value="Go">
 		</form>
