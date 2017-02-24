@@ -1,5 +1,5 @@
 	<footer>
-		Par De Guglielmo Roberto  <a href="#header" >Haut de page</a>
+		Par Dufrien Marylin et Grandfils Nicolas  <a href="#header" >Haut de page</a>
 	</footer>
 
 <?php require_once('../vue/js/init.js'); ?>
