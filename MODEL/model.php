@@ -11,7 +11,7 @@ class Model{
 	function __construct() {
 		
 		try {
-			$this->schema = 'northwind';
+			$this->schema = 'venteposters';
 			$dns = 'mysql:host=127.0.0.1;dbname='.$this->schema;
 			$utilisateur = "root";
 			$motDePasse = '';
