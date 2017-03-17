@@ -1,6 +1,7 @@
 <?php
 require_once('../control/core.php');
 unset($_SESSION['ERROR_LOGIN']);
+print_r($_POST);
 if( isset($_POST['UTILISATEUR']) && isset($_POST['CODE']) ) { 
 	if( Control::auth($_POST['UTILISATEUR'], $_POST['CODE']) ) { 
 		// auth okay, setup session 
