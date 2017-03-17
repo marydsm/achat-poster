@@ -1,7 +1,7 @@
 <?php 
 
 class Vue{
-	public static function rtv_Table($pParam){
+	public static function rtv_Table($pParam,$pNom=''){
 		$out  = "";
 		$titre= '<tr>';
 		$titre_trt= false;
@@ -21,7 +21,7 @@ class Vue{
 			$titre_trt= true;
 			$out .= "</tr>";
 		}
-		$out = '<table>'.$titre.$out.'</table>';
+		$out = '<section ID="RESULT_'.$pNom.'"><article><table>'.$titre.$out.'</table>';
 		return $out;
 	}
 	
