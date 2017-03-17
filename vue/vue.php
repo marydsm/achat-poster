@@ -38,5 +38,18 @@ class Vue{
 		$out = '<table>'.$out.'</table>';
 		return $out;
 	}
+
+	public static function rtv_zone_rech($pAction,$pNom,$pRechval,$pPlaceholder){
+		
+		$out="";
+
+		$out='<section><article>';
+		$out.='<form action="'.$pAction.'" method="post" accept-charset="utf-8">';
+		$out.='<input type="text" name="'.$pNom.'" value="'.$pRechval.'" placeholder="'.$pPlaceholder.'" required>';
+		$out.='<input type="submit" name="" value="RECHERCHE">';
+		$out.='</form></section></article>';
+
+		return $out;
+	}
 }
 ?>
