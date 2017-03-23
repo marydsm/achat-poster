@@ -2,11 +2,14 @@
 	require_once('../control/core.php');
 	require_once('../vue/haut.php');
 	require_once('../vue/aside.php');
+	
 	$rech="";
-	if (isset($_POST['RECHERCHE'])){
-	$rech=$_POST['RECHERCHE'];
-}
-	echo $rech;
+
+	if (isset($_POST['RECHERCHE']))
+	{
+		$rech=$_POST['RECHERCHE'];
+	}
+	
 	$utilisateurs=Model::load("utilisateurs");
 
 	$utilisateurs->read();

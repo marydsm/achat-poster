@@ -3,6 +3,8 @@
 	require_once('../vue/haut.php');
 	require_once('../vue/aside.php');
 
+	$rech="";
+
 	$employees=Model::load("employees");
 
 	$employees->read('employeeID "#", Title "Titre ", LastName "Nom" , FirstName "Prénom"');
