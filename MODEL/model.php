@@ -1,5 +1,6 @@
 <?php
-class Model{
+class Model
+{
 	protected  	$connection;
 	protected  	$dbMapArray;
 	protected 	$schema ;
@@ -109,6 +110,8 @@ class Model{
 			echo 'Une erreur est survenue lors de la récupération des créateurs';
 		}
 	}
+		
+		//ancienne version du read()
 		/*if (count($this->id) == 0){
 			$sql= 'SELECT '.$fields.' from '.$this->table ;
 		}
