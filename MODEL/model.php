@@ -13,7 +13,7 @@ class Model{
 	function __construct() {
 		
 		try {
-			$this->schema = 'northwind';
+			$this->schema = 'venteposters';
 			$dns = 'mysql:host=127.0.0.1;dbname='.$this->schema;
 			$utilisateur = "root";
 			$motDePasse = '';
@@ -80,6 +80,8 @@ $sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;
 
 try {
 				  // On envois la requète
+
+	echo 'Requète : '.$sql;
 	$select = $this->connection->query($sql);
 	if($select==false){
 		echo 'Erreur lors de l\' exécution de la requète : '.$sql;

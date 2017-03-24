@@ -10,7 +10,8 @@
 		$rech=$_POST['RECHERCHE'];
 	}
 	
-
+	echo Vue::rtv_zone_rech('../CONTROL/utilisateurs_tab.php','RECHERCHE',$rech,'Recherche');
+	
 	require_once('../control/utilisateurs_tab_ajax.php');
 
 	require_once('../vue/bas.php');

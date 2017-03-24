@@ -1,4 +1,4 @@
-<?php echo Vue::rtv_zone_rech('../CONTROL/utilisateurs_tab.php','RECHERCHE',$rech,'Recherche');?>
+
 
 <?php echo Vue::rtv_table($utilisateurs);	 ?>
 
