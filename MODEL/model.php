@@ -81,6 +81,7 @@ $sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;
 try {
 				  // On envois la requète
 
+	//echo 'Requète : '.$sql;  //vision des champs de la table
 	$select = $this->connection->query($sql);
 	if($select==false){
 		echo 'Erreur lors de l\' exécution de la requète : '.$sql;
