@@ -10,8 +10,8 @@
 <body>
 	<header id="header" class="header">
 		<H1>
-			Collège Technique "Aumôniers du Travail" <br>
-			Enseignement de Promotion Sociale<br>
+			Projet de développement web : Travail de groupe <br>
+			Achat de posters grands formats<br>
 		</H1>
 		<?php 
 		if(isset($_SESSION['NOM'])){ 

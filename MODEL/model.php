@@ -1,22 +1,19 @@
 <?php
-class Model
-{
+class Model{
 	protected  	$connection;
 	protected  	$dbMapArray;
 	protected 	$schema ;
 	protected  	$table ;	
-	protected  	$id= array(); 
-	protected  	$PK= array();
-	protected	$rech= array(); 
+	protected  	$id= array() ; 
+	protected  	$PK= array(); 
+	protected  	$Rech= array(); 
 	
 	public    	$data ;
 	
-	function __construct() 
-	{
+	function __construct() {
 		
-		try 
-		{
-			$this->schema = 'venteposters';
+		try {
+			$this->schema = 'northwind';
 			$dns = 'mysql:host=127.0.0.1;dbname='.$this->schema;
 			$utilisateur = "root";
 			$motDePasse = '';
@@ -31,113 +28,71 @@ class Model
 			$this->connection = new PDO( $dns, $utilisateur, $motDePasse, $options );
 
 
-		} 
-		catch ( Exception $e ) 
-		{
+		} catch ( Exception $e ) {
 			echo "Connection à MySQL impossible : ", $e->getMessage();
 			die();
 		}
 		
 	}
 
-	static function load($name)
-	{
+	static function load($name){
 		require_once ('../model/'.$name.'.php');
 		return new $name($name);
 	}
 	
-	public function read($fields=null,$prech=null)//$prech à la place de $where
-	{
+	public function read($fields=null,$pRech=null){
 		
 		if($fields==null){
 			$fields = '*';
 		}
-		
-		if ($prech==null)
-		{
-			if (count($this->id) == 0)
-			{
-				$sql='SELECT '.$fields.' from '.$this->table;
-			}
-			else
-			{
-				$sql='SELECT '.$fields.' from '.$this->table.' where ';
-				$sql.= $this->PK[0].'='.$this->connection->quote($this->id[0]);
-			}
-		}
-		else
-		{
-			$prech="";
-			$i=0;
 
-			while($i<count($this->rech))
-			{
-				if($i==0)
-				{
-					$prech="upper(concat(";
+		if($pRech==null){
+			if (count($this->id) == 0){
+				$sql= 'SELECT '.$fields.' from '.$this->table ;
+			}
+			else{
+				$sql= 'SELECT '.$fields.' from '.$this->table .'  where ';
+				$sql.= $this->PK[0] .'='. $this->connection->quote($this->id[0]);
+			}	
+		}else{
+			$where="";
+			$i=0;
+			while($i<count($this->Rech)){
+				if ($i==0) {
+					$where="upper(concat(";
+				}else{
+					$where.=" , '|' , ";
 				}
-				else
-				{
-					$prech.=" , '|' , ";
-				}
-				$prech.=$this->rech[$i];
+				$where.=$this->Rech[$i];			
 				$i++;
 			}
 
-			if($prech!="")
-			{
-				$prech.=" )) like upper(".$this->connection->quote("%".$prech."%").") ";
-				$sql= 'SELECT '.$fields.' from '.$this->table.' where '.$prech; 
-			}
-			else
-			{
-				$sql= 'SELECT '.$fields.' from '.$this->table;
-			}
-		}
+			if($where!=''){
+				$where.=' )) like upper('.$this->connection->quote('%'.$pRech.'%').') ';
+$sql= 'SELECT '.$fields.' from '.$this->table.' where '.$where ;	
+}else{
+	$sql= 'SELECT '.$fields.' from '.$this->table ;
+}
 
-		try
-		{
-			//Envoi de la requête
-			$select = $this->connection->query($sql);
+}
 
-			//Indication de l'utilisation des résultats en tant qu'objet
-			$select->setFetchMode(PDO::FETCH_OBJ);
-			$this->data = new stdClass();
-			$this->data = $select->fetchAll();
-		}
-		catch (Exception $e)
-		{
-			echo 'Une erreur est survenue lors de la récupération des créateurs';
-		}
+
+
+try {
+				  // On envois la requète
+	$select = $this->connection->query($sql);
+	if($select==false){
+		echo 'Erreur lors de l\' exécution de la requète : '.$sql;
+	}else{
+				  // On indique que nous utiliserons les résultats en tant qu'objet
+		$select->setFetchMode(PDO::FETCH_OBJ);
+		$this->data = new stdClass();
+		$this->data = $select->fetchAll();
 	}
-		
-		//ancienne version du read()
-		/*if (count($this->id) == 0){
-			$sql= 'SELECT '.$fields.' from '.$this->table ;
-		}
-		else{
-			$sql= 'SELECT '.$fields.' from '.$this->table .'  where ';
-			$sql.= $this->PK[0] .'='. $this->connection->quote($this->id[0]);
-		}
-		
-		try {
-		  // On envois la requète
-			echo $sql;
-			$select = $this->connection->query($sql);
-			
-		  // On indique que nous utiliserons les résultats en tant qu'objet
-			$select->setFetchMode(PDO::FETCH_OBJ);
-			$this->data = new stdClass();
-			$this->data = $select->fetchAll();
+} catch ( PDOException $e ) {
+	echo 'Erreur lors de l\' exécution de la requète : '.$sql.'==========='.$e->getMessage(); ;
+}
 
-		} catch ( Exception $e ) {
-			echo 'Une erreur est survenue lors de la récupération des créateurs';
-		}
-		
-	}*/
-	
-	
-
-
+}
 }
 ?>

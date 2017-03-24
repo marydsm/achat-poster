@@ -10,11 +10,8 @@
 		$rech=$_POST['RECHERCHE'];
 	}
 	
-	$utilisateurs=Model::load("utilisateurs");
 
-	$utilisateurs->read();
-
-	require_once('../vue/utilisateurs_tab.php');
+	require_once('../control/utilisateurs_tab_ajax.php');
 
 	require_once('../vue/bas.php');
 ?>
