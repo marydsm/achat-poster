@@ -1,0 +1,1 @@
+<?php echo Vue::rtv_table($posters);	 ?>
