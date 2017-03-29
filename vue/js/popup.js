@@ -22,3 +22,4 @@ var showInfo = function()
 };
 
 $( 'img' ).on("click", showInfo );
+

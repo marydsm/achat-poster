@@ -33,7 +33,7 @@ var maFonctionImage = function(event){
 		$('#popup1').remove();
 	});
 };
-
+	
 
 $(function(){
 	$('p').on('click', maFonction);

@@ -45,7 +45,7 @@ class Vue{
 
 		$out='<section><article>';
 		$out.='<form action="'.$pAction.'" method="post" accept-charset="utf-8">';
-		$out.='<input type="text" name="'.$pNom.'" value="'.$pRechval.'" placeholder="'.$pPlaceholder.'">';
+		$out.='<input class="ecoute" type="text" name="'.$pNom.'" value="'.$pRechval.'" placeholder="'.$pPlaceholder.'">';
 		$out.='<input type="submit" name="" value="RECHERCHE">';
 		$out.='</form></section></article>';
 
