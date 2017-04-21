@@ -21,7 +21,7 @@ class Vue{
 			$titre_trt= true;
 			$out .= "</tr>";
 		}
-		$out = '<section ID="RESULT_'.$pNom.'"><article><table>'.$titre.$out.'</table>';
+		$out = '<section ID="RESULT_'.$pNom.'"><article><table ID="rech">'.$titre.$out.'</table></article></section>';
 		return $out;
 	}
 	

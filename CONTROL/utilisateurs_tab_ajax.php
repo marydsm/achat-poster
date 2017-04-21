@@ -16,4 +16,6 @@
 	$utilisateurs->read('utilisateur "User", code "Pass", nom "Nom", prenom "Prénom", admin "Administrateur", actif "Actif"', $rech);
 
 	require_once('../vue/utilisateurs_tab.php');
+
+	require_once('../vue/bas.php');
 ?>
