@@ -1,1 +1,1 @@
-<?php echo Vue::rtv_table($posters);	 ?>
+<?php echo Vue::rtv_table($posters,'RECHERCHE');	 ?>
