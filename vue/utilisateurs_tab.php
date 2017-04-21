@@ -1,1 +1,1 @@
-<?php echo Vue::rtv_table($utilisateurs);	 ?>
+<?php echo Vue::rtv_table($utilisateurs,'RECHERCHE');	 ?>

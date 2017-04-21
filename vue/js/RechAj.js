@@ -8,7 +8,7 @@ var RechAj = function()
 	/*alert($form.attr("action"));
 	alert($input.val());*/
 
-	$formAction.replace('.php','_ajax.php');
+	$formAction=$formAction.replace('.php','_ajax.php');
 	/*alert($formAction);*/
 	$.post( $formAction, { RECH_AJAX : $formValeur}).done(function(data){
 		/*alert ("Data loaded" + data);*/
