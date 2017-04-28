@@ -1,4 +1,4 @@
-<?php 
+<?php //test 1-2-1-2
 
 class Control{
 	public static function auth($pUtil,$pCode){
